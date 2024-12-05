@@ -18,8 +18,14 @@ Go to releases tab, download Pong.tar.gz
 
 Extract it:
 
-```tar -xzvf MyGame.tar.gz```
+```
+mkdir Pong/
+tar -xzvf MyGame.tar.gz -C Pong
+```
 
 Run it:
 
-```./Pong.x86_64```
+```
+cd Pong/
+./Pong.x86_64
+```
