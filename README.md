@@ -20,7 +20,7 @@ Extract it:
 
 ```
 mkdir Pong/
-tar -xzvf MyGame.tar.gz -C Pong
+tar -xzvf Pong.tar.gz -C Pong
 ```
 
 Run it:
