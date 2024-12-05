@@ -44,9 +44,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		new_velocity = directionVector * SCALAR_VELOCITY
 		state.set("linear_velocity", new_velocity)
 
-	print(self.transform.origin.y)
-		
-
 func reset() -> void:
 	SHOULD_RESET = true
 

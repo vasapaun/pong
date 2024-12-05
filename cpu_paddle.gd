@@ -24,7 +24,6 @@ func _physics_process(_delta: float) -> void:
 	elif self.transform.origin.y > main.get_ball_height():
 		self.velocity.y = -SPEED
 	else:
-		print("Same")
 		self.velocity.y = 0
 
 	move_and_slide()
