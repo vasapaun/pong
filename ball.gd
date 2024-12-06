@@ -1,8 +1,9 @@
 extends RigidBody2D
 
+const START_POSITION:Vector2 = Vector2(400,300)
+const START_SCALAR_VELOCITY:float = 600
+var SCALAR_VELOCITY:float = START_SCALAR_VELOCITY
 var SHOULD_RESET:bool = false
-var START_POSITION:Vector2 = Vector2(400,300)
-var SCALAR_VELOCITY:float = 600
 
 var i = 0
 
@@ -32,6 +33,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if SHOULD_RESET:
 		SHOULD_RESET = false
 
+		SCALAR_VELOCITY = START_SCALAR_VELOCITY
+
 		# Set it back to original position
 		var new_transform = state.get("transform")
 		new_transform.origin = Vector2(400,300)
@@ -60,10 +63,13 @@ func random_angle():
 	# Generate a random angle within the selected range
 	return randf_range(selected_range.x, selected_range.y)
 
-func get_direction() -> bool:
-	if self.velocity.x < 0:
-		return false
-	return true
+func get_direction() -> int:
+	if self.linear_velocity.x < 0:
+		return DIRECTION.LEFT 
+	return DIRECTION.RIGHT 
 
 func get_height() -> float:
 	return self.transform.origin.y
+
+func speed_up() -> void:
+	SCALAR_VELOCITY *= 1.1

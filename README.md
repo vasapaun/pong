@@ -14,18 +14,18 @@ Space to pause/unpause
 
 Linux:
 
-Go to releases tab, download Pong.tar.gz
+Go to releases tab, download Pong.tar.gz from the latest release
 
 Extract it:
 
 ```
 mkdir Pong/
-tar -xzvf MyGame.tar.gz -C Pong
+tar -xzvf Pong.tar.gz -C Pong
 ```
 
 Run it:
 
 ```
 cd Pong/
-./Pong.x86_64
+./Pong.sh
 ```
