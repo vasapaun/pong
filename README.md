@@ -27,5 +27,5 @@ Run it:
 
 ```
 cd Pong/
-./Pong.sh
+./Pong.x86_64
 ```

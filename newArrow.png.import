@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdcgcebv6r31e"
-path="res://.godot/imported/paddle.png-0e798fb0912613386507c9904d5cc01a.ctex"
+uid="uid://reuctrk1sl5m"
+path="res://.godot/imported/newArrow.png-02080179087b79d877c920a43882f31b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://paddle.png"
-dest_files=["res://.godot/imported/paddle.png-0e798fb0912613386507c9904d5cc01a.ctex"]
+source_file="res://newArrow.png"
+dest_files=["res://.godot/imported/newArrow.png-02080179087b79d877c920a43882f31b.ctex"]
 
 [params]
 

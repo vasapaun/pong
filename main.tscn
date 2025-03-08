@@ -1,13 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2dd4iocx3lmn"]
+[gd_scene load_steps=19 format=3 uid="uid://b2dd4iocx3lmn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1lkn4"]
 [ext_resource type="Script" path="res://ball.gd" id="2_d77f6"]
 [ext_resource type="Script" path="res://goal.gd" id="3_mhurr"]
 [ext_resource type="Texture2D" uid="uid://b56rg1543adcb" path="res://ball.png" id="3_vuuju"]
-[ext_resource type="Texture2D" uid="uid://bdcgcebv6r31e" path="res://paddle.png" id="5_f0d6y"]
 [ext_resource type="Script" path="res://player_paddle.gd" id="5_rhj0r"]
+[ext_resource type="Texture2D" uid="uid://dgo0661lsrf21" path="res://player_paddle.png" id="6_0l5tx"]
 [ext_resource type="Script" path="res://cpu_paddle.gd" id="7_gwr7u"]
 [ext_resource type="Script" path="res://debug_mode.gd" id="8_6dmse"]
+[ext_resource type="Texture2D" uid="uid://bywffdnijir5m" path="res://cpu_paddle.png" id="8_g1q2b"]
+[ext_resource type="FontFile" uid="uid://dq1chp37v3xnh" path="res://ARCADECLASSIC.TTF" id="8_kvc75"]
+[ext_resource type="Script" path="res://arrow.gd" id="10_f4s20"]
+[ext_resource type="Texture2D" uid="uid://reuctrk1sl5m" path="res://newArrow.png" id="11_k6gat"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ygvfx"]
 friction = 0.0
@@ -84,7 +88,7 @@ shape = SubResource("RectangleShape2D_mxegs")
 position = Vector2(-380, 0)
 rotation = 1.5708
 scale = Vector2(0.580199, 0.297025)
-texture = ExtResource("5_f0d6y")
+texture = ExtResource("6_0l5tx")
 
 [node name="CpuPaddle" type="CharacterBody2D" parent="."]
 motion_mode = 1
@@ -99,13 +103,14 @@ shape = SubResource("RectangleShape2D_mxegs")
 position = Vector2(380, -0.109985)
 rotation = -1.5708
 scale = Vector2(0.580199, 0.297025)
-texture = ExtResource("5_f0d6y")
+texture = ExtResource("8_g1q2b")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = -7.0
-offset_top = -250.0
-offset_right = 7.0
-offset_bottom = -183.0
+offset_left = -14.0
+offset_top = -254.0
+offset_right = 10.0
+offset_bottom = -187.0
+theme_override_fonts/font = ExtResource("8_kvc75")
 theme_override_font_sizes/font_size = 48
 text = ":"
 horizontal_alignment = 1
@@ -116,6 +121,7 @@ offset_left = -97.0
 offset_top = -250.0
 offset_right = -17.0
 offset_bottom = -183.0
+theme_override_fonts/font = ExtResource("8_kvc75")
 theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 2
@@ -126,12 +132,37 @@ offset_left = 17.0
 offset_top = -250.0
 offset_right = 97.0
 offset_bottom = -183.0
+theme_override_fonts/font = ExtResource("8_kvc75")
 theme_override_font_sizes/font_size = 48
 text = "0"
 vertical_alignment = 1
 
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -184.0
+offset_right = 29.0
+offset_bottom = -125.0
+theme_override_fonts/font = ExtResource("8_kvc75")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DebugMode" type="Node" parent="."]
 script = ExtResource("8_6dmse")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(1.52588e-05, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_k6gat")
+script = ExtResource("10_f4s20")
+
+[node name="BallTemp" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.911, 0.911)
+texture = ExtResource("3_vuuju")
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="LeftGoal" to="LeftGoal" method="_on_body_entered"]
 [connection signal="body_entered" from="RightGoal" to="LeftGoal" method="_on_right_goal_body_entered"]

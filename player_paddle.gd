@@ -42,3 +42,5 @@ func _physics_process(_delta: float) -> void:
 
 func reset() -> void:
 	self.position = START_POSITION
+	up = false
+	down = false
