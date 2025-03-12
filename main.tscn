@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2dd4iocx3lmn"]
+[gd_scene load_steps=22 format=3 uid="uid://b2dd4iocx3lmn"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1lkn4"]
 [ext_resource type="Script" path="res://ball.gd" id="2_d77f6"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://dq1chp37v3xnh" path="res://res/ARCADECLASSIC.TTF" id="9_sg1xa"]
 [ext_resource type="Script" path="res://arrow.gd" id="10_f4s20"]
 [ext_resource type="Texture2D" uid="uid://nb66r7cs7egs" path="res://res/arrow.png" id="11_qyc4w"]
+[ext_resource type="Shader" path="res://crt.gdshader" id="13_ixb31"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ygvfx"]
 friction = 0.0
@@ -31,6 +32,12 @@ size = Vector2(20, 600)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxegs"]
 size = Vector2(20, 150)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ammjl"]
+shader = ExtResource("13_ixb31")
+
+[sub_resource type="QuadMesh" id="QuadMesh_84jr5"]
+size = Vector2(800, 600)
 
 [node name="Main" type="Node2D"]
 position = Vector2(399, 301)
@@ -115,6 +122,7 @@ theme_override_font_sizes/font_size = 48
 text = ":"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerScoreLabel" type="Label" parent="."]
 offset_left = -97.0
@@ -126,6 +134,7 @@ theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CpuScoreLabel" type="Label" parent="."]
 offset_left = 17.0
@@ -136,6 +145,7 @@ theme_override_fonts/font = ExtResource("9_sg1xa")
 theme_override_font_sizes/font_size = 48
 text = "0"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerLabel" type="Label" parent="."]
 offset_left = -30.0
@@ -146,6 +156,7 @@ theme_override_fonts/font = ExtResource("9_sg1xa")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="DebugMode" type="Node" parent="."]
 script = ExtResource("8_6dmse")
@@ -158,6 +169,15 @@ script = ExtResource("10_f4s20")
 
 [node name="PauseTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(400, 300)
+transform = Transform2D(1, 0, 0, 1, 400, 300)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ammjl")
+position = Vector2(-2, -4)
+mesh = SubResource("QuadMesh_84jr5")
 
 [connection signal="body_entered" from="LeftGoal" to="LeftGoal" method="_on_body_entered"]
 [connection signal="body_entered" from="RightGoal" to="LeftGoal" method="_on_right_goal_body_entered"]
