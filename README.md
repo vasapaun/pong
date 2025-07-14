@@ -1,5 +1,10 @@
 # Pong
 
+## Screenshots
+
+![Gameplay](./screenshots/gameplay.jpg)
+![Kickoff](./screenshots/kickoff.jpg)
+
 You are the left paddle.
 
 Up or K to move up
